@@ -159,13 +159,9 @@ function getImageFilesToProcess(continuationToken, batchSize) {
   if (continuationToken) {
     files = DriveApp.continueFileIterator(continuationToken);
   } else {
-    // Search for image files specifically
-    const imageQuery = CONFIG.COMMON_IMAGE_FORMATS
-      .map(format => `name contains '.${format}'`)
-      .join(' or ');
-    
-    const fullQuery = `(${imageQuery}) and trashed = false`;
-    files = DriveApp.searchFiles(fullQuery);
+    // Search for all non-trashed files, we'll filter images during processing
+    // This is more reliable than complex file name queries
+    files = DriveApp.searchFiles('trashed = false');
   }
   
   const filesToProcess = [];

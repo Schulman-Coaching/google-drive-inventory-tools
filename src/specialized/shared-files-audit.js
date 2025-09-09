@@ -168,8 +168,9 @@ function getSharedFilesToProcess(continuationToken, batchSize) {
   if (continuationToken) {
     files = DriveApp.continueFileIterator(continuationToken);
   } else {
-    // Search for files that are not private
-    files = DriveApp.searchFiles('visibility != "limited" and trashed = false');
+    // Search for all non-trashed files, we'll filter shared files during processing
+    // This is more reliable than complex visibility queries
+    files = DriveApp.searchFiles('trashed = false');
   }
   
   const filesToProcess = [];

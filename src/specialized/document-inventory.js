@@ -184,22 +184,9 @@ function getDocumentFilesToProcess(continuationToken, batchSize) {
   if (continuationToken) {
     files = DriveApp.continueFileIterator(continuationToken);
   } else {
-    // Search for document files
-    const docQuery = [
-      "mimeType contains 'document'",
-      "mimeType contains 'text'",
-      "mimeType contains 'spreadsheet'", 
-      "mimeType contains 'presentation'",
-      "mimeType = 'application/pdf'",
-      "name contains '.doc'",
-      "name contains '.xls'",
-      "name contains '.ppt'",
-      "name contains '.pdf'",
-      "name contains '.txt'"
-    ].join(' or ');
-    
-    const fullQuery = `(${docQuery}) and trashed = false`;
-    files = DriveApp.searchFiles(fullQuery);
+    // Search for all non-trashed files, we'll filter documents during processing
+    // This is more reliable than complex MIME type queries
+    files = DriveApp.searchFiles('trashed = false');
   }
   
   const filesToProcess = [];
