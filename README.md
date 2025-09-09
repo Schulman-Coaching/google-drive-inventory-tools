@@ -18,12 +18,12 @@ A comprehensive collection of Google Apps Script tools for analyzing and managin
 - **Automatic Scheduling**: Set up hourly or continuous scanning
 
 ### Specialized Scripts
-- **Image Files**: Focus on photos, graphics, and visual content
-- **Documents**: Word docs, PDFs, and text files analysis  
-- **Media Files**: Videos and audio files inventory
-- **Large Files**: Identify storage space consumers
-- **Old Files**: Find files not accessed recently
-- **Shared Files**: Security and collaboration analysis
+- **Image Files**: Focus on photos, graphics, and visual content analysis
+- **Documents**: Word docs, PDFs, and text files with collaboration details  
+- **Large Files**: Identify storage space consumers with cleanup recommendations
+- **Shared Files**: Security audit with permission analysis and risk assessment
+- **Markdown Files**: Documentation, README files, and technical writing analysis
+- **Code Files**: Programming files with language detection and repository analysis
 
 ## 🔧 Installation
 
@@ -70,12 +70,12 @@ src/
 ├── core/
 │   └── drive-inventory-complete.js    # Main comprehensive script
 ├── specialized/
-│   ├── image-inventory.js            # Image files only
-│   ├── document-inventory.js         # Documents focus
-│   ├── media-inventory.js            # Video/audio files
-│   ├── large-files-finder.js         # Large files only
-│   ├── old-files-cleanup.js          # Old files analysis
-│   └── shared-files-audit.js         # Security audit
+│   ├── image-inventory.js            # Image files analysis
+│   ├── document-inventory.js         # Document files analysis
+│   ├── large-files-finder.js         # Storage optimization
+│   ├── shared-files-audit.js         # Security audit
+│   ├── markdown-inventory.js         # Markdown/documentation files
+│   └── code-files-inventory.js       # Programming files analysis
 ├── utils/
 │   └── common-functions.js           # Shared utilities
 docs/
